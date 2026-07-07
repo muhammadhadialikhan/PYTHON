@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wok This Way - Our Feedbacks</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --accent-blue: #007bff;
+            --bg-color: #f0f4f8;
+            --text-dark: #2a2a2a;
+            --star-gold: #ffc107;
+            --nav-bg: #111b27;
+            /* Dark bluish-black header color match */
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            /* Strict scroll disable to keep elements fixed */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Updated navigation bar layout with dark theme spanning edge-to-edge */
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--nav-bg);
+            padding: 15px 30px;
+            box-sizing: border-box;
+            border-bottom: 3px solid var(--primary-blue);
+        }
+
+        /* White logo styling */
+        .navbar .logo h1 {
+            margin: 0;
+            font-size: 22px;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Nav links forced to clean white text color */
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            padding: 20px 30px;
+        }
+
+        h1.main-title {
+            color: var(--primary-blue);
+            text-align: left;
+            margin: 0 0 2px 0;
+            font-size: 22px;
+        }
+
+        p.subtitle {
+            text-align: left;
+            color: #666;
+            margin: 0 0 12px 0;
+            font-size: 13px;
+        }
+
+        .feedbacks-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .feedback-card {
+            background-color: #ffffff;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border-left: 5px solid var(--primary-blue);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .feedback-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+
+        .user-name {
+            font-weight: bold;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .rating-stars {
+            color: var(--star-gold);
+            font-size: 14px;
+        }
+
+        .cooked-dish {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 4px;
+            font-size: 11px;
+        }
+
+        .user-comment {
+            line-height: 1.35;
+            font-size: 12px;
+            margin: 0;
+        }
+footer {
+    background-color: #1e293b;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Wok This Way</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="FAMOUSFOODS.html">Famous Foods</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="ourmenu.html">Our Menu</a></li>
+            <li><a href="ourfeedbacks.html">Our Feedbacks</a></li>
+            <li><a href="sendfeedbacks.html">Send Feedback</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1 class="main-title">CUSTOMER REVIEWS & FEEDBACK</h1>
+        <p class="subtitle">See what our home chefs are cooking up in their kitchens!</p>
+
+        <div class="feedbacks-container">
+            <!-- Card 1 -->
+            <div class="feedback-card">
+                <div class="feedback-header">
+                    <span class="user-name">Ayesha Khan</span>
+                    <span class="rating-stars">★★★★★</span>
+                </div>
+                <div class="cooked-dish">Last cooked: Kung Pao Chicken</div>
+                <p class="user-comment">The recipe was incredibly simple to follow step-by-step. The spice balance came
+                    out perfectly authentic!</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="feedback-card">
+                <div class="feedback-header">
+                    <span class="user-name">Zain Ahmed</span>
+                    <span class="rating-stars">★★★★☆</span>
+                </div>
+                <div class="cooked-dish">Last cooked: Egg Fried Rice</div>
+                <p class="user-comment">Great tip on using day-old cold rice! It made a huge difference in the texture.
+                    Quick and easy.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="feedback-card">
+                <div class="feedback-header">
+                    <span class="user-name">Sana Malik</span>
+                    <span class="rating-stars">★★★★★</span>
+                </div>
+                <div class="cooked-dish">Last cooked: Manchurian Chicken</div>
+                <p class="user-comment">Absolutely brilliant flavor profile! Tasted exactly like high-end restaurant
+                    takeout right from my kitchen.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="feedback-card">
+                <div class="feedback-header">
+                    <span class="user-name">Bilal Siddiqui</span>
+                    <span class="rating-stars">★★★★☆</span>
+                </div>
+                <div class="cooked-dish">Last cooked: Hot & Sour Soup</div>
+                <p class="user-comment">Perfect balance of tangy and spicy warmth for cold evenings. The vegetable cuts
+                    guide was a great extra touch.</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="feedback-card">
+                <div class="feedback-header">
+                    <span class="user-name">Fatima Ali</span>
+                    <span class="rating-stars">★★★★★</span>
+                </div>
+                <div class="cooked-dish">Last cooked: Chow Mein</div>
+                <p class="user-comment">Super fast recipe instructions! My kids absolutely loved the sauce mix.
+                    Definitely adding to our rotation.</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="feedback-card">
+                <div class="feedback-header">
+                    <span class="user-name">Omar Farooq</span>
+                    <span class="rating-stars">★★★★★</span>
+                </div>
+                <div class="cooked-dish">Last cooked: Beef Chili Dry</div>
+                <p class="user-comment">The beef turned out tender and juicy. The ginger slices really brought out the
+                    restaurant-style fragrance.</p>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="feedback-card">
+                <div class="feedback-header">
+                    <span class="user-name">Hania Amir</span>
+                    <span class="rating-stars">★★★★☆</span>
+                </div>
+                <div class="cooked-dish">Last cooked: Spring Rolls</div>
+                <p class="user-comment">Crispy wrapper technique worked flawlessly. Clear instructions made frying them
+                    completely stress-free.</p>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="feedback-card">
+                <div class="feedback-header">
+                    <span class="user-name">Hamza Khan</span>
+                    <span class="rating-stars">★★★★★</span>
+                </div>
+                <div class="cooked-dish">Last cooked: Szechuan Shrimp</div>
+                <p class="user-comment">Bold, fiery, and deeply savory sauce. Incredible recipe that pairs beautifully
+                    with plain steamed jasmine rice.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MyWebsite. All rights reserved MUHAMMAD HADI ALI KHAN.</p>
+    </footer>
+
+</body>
+</html>

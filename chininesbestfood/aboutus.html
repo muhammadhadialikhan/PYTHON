@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wok This Way - About Us</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --accent-blue: #007bff;
+            --bg-color: #f0f4f8;
+            --text-dark: #2a2a2a;
+            --nav-bg: #111b27;
+            --footer-bg: #111b27;
+        }
+
+        /* 1. FIXED HEIGHT CRASH: Changed height to min-height and allowed full overflow scrolling */
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* MATCHED PREMIUM COOL NAVBAR SYSTEM */
+        .navbar {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 99999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 30px;
+            box-sizing: border-box;
+            background-color: #111b27 !important;
+            border-bottom: 4px solid #0056b3;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
+        }
+
+        /* Cool Gradient Brand Logo Accent */
+        .navbar .logo h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff, #007bff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Navigation Links Wrapper Layout */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Cool Links Layout with Custom Underlines */
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff !important;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 6px 0;
+            position: relative;
+            transition: color 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .nav-links a:hover {
+            color: #007bff !important;
+        }
+
+        /* Cool Animated Underline Sliding Effect */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #007bff;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* 2. FLEXIBLE MAIN CONTENT: Removed restrictive height properties */
+        main.content {
+            width: 95%;
+            max-width: 1200px;
+            /* Kept layout looking crisp on ultra-wide desktop monitors */
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 0;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            text-align: left;
+            margin: 0 0 20px 0;
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        /* 3. RESPONSIVE PARENT CARD: Allowed card box to adapt naturally to text length */
+        .about-card {
+            background-color: #ffffff;
+            width: 100%;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.06);
+            border-left: 10px solid var(--primary-blue);
+            box-sizing: border-box;
+        }
+
+        /* 4. NATURAL COLUMN FLOW: Changed inside container to handle small laptop screens elegantly */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Enhanced Content Sections */
+        .story-section {
+            background: #f8fafc;
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .story-section h3 {
+            color: var(--primary-blue);
+            font-size: 26px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .story-section p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #334155;
+            margin: 0 0 20px 0;
+        }
+
+        .story-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-section strong {
+            color: var(--primary-blue);
+            background: rgba(0, 86, 179, 0.06);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Footer Layout */
+        footer {
+            width: 100%;
+            background-color: var(--footer-bg);
+            color: #ffffff;
+            font-size: 14px;
+            text-align: center;
+            padding: 24px 0;
+            box-sizing: border-box;
+            border-top: 4px solid var(--primary-blue);
+            margin-top: 60px;
+            /* Generous separation space from content block */
+        }
+
+        footer p {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Wok This Way</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="FAMOUSFOODS.html">Famous Foods</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="ourmenu.html">Our Menu</a></li>
+            <li><a href="ourfeedbacks.html">Our Feedbacks</a></li>
+            <li><a href="sendfeedbacks.html">Send Feedback</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h2>About Us</h2>
+        <div class="about-card">
+            <div class="about-grid">
+
+                <!-- Column 1: Our Story Card -->
+                <div class="story-section">
+                    <h3>🔥 Our Story</h3>
+                    <p>Founded with a deep passion for authentic Asian culinary arts, <strong>Wok This Way</strong>
+                        brings high-temperature wok-tossed restaurant flavors straight into your home kitchen. We
+                        specialize in demystifying traditional recipes and turning complex cooking processes into clear,
+                        accessible directions for everyday food lovers.</p>
+                    <p>Whether you are craving a fiery Szechuan kick, a comforting broth, or perfecting the classic egg
+                        fried rice, our curated collection is engineered to give you flawless kitchen results on every
+                        single try.</p>
+                </div>
+
+                <!-- Column 2: Our Philosophy Card -->
+                <div class="story-section">
+                    <h3>💡 Our Philosophy</h3>
+                    <p>We believe that premium quality Asian cuisine shouldn't be hidden behind industrial secrets. That
+                        is why we provide meticulous preparation steps, precise stir-fry timings, and accessible
+                        ingredient lists to help you harness true wok-hei energy safely at home.</p>
+                    <p>From sourcing the ideal soy sauce to maintaining the ultimate skillet temperatures, we share
+                        everything you need to upgrade your home-cooking game. Thank you for making us your reliable
+                        partner in masterfully crafted food experiences!</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Wok This Way. All rights reserved MUHAMMAD HADI ALI KHAN.</p>
+    </footer>
+</body>
+
+</html>

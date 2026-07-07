@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wok This Way - Our Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Blue Theme Color Palette Variables */
+        :root {
+            --primary-brand-color: #1e40af;
+            /* Rich Royal Blue for headers and prices */
+            --button-hover-color: #2563eb;
+            /* Vibrant Blue for interactive hovers */
+            --body-bg-color: #f0f4f8;
+            /* Ice Blue tinted background */
+            --card-bg-color: #ffffff;
+            /* Clean White for menu cards */
+            --header-bg-color: #ffffff;
+            /* Clean White for header banner */
+            --footer-bg-color: #0f172a;
+            /* Dark Navy for footer */
+            --footer-text-color: #94a3b8;
+            /* Muted Gray-Blue for footer text */
+            --text-main: #1e293b;
+            /* Slate Blue-Black for primary text */
+            --text-muted: #475569;
+            /* Slate Gray for descriptions */
+            --badge-spicy: #ef4444;
+            /* High-contrast Red for Spicy items */
+            --badge-popular: #3b82f6;
+            /* Bright Blue for Popular items */
+        }
+
+        /* Base styles linked to your variables */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--body-bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* MATCHED PREMIUM COOL NAVBAR SYSTEM */
+        .navbar {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 99999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 30px;
+            box-sizing: border-box;
+            background-color: #111b27 !important;
+            border-bottom: 4px solid #0056b3;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
+        }
+
+        /* Cool Gradient Brand Logo Accent */
+        .navbar .logo h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff, #007bff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Navigation Links Wrapper Layout */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Cool Links Layout with Custom Underlines */
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff !important;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 6px 0;
+            position: relative;
+            transition: color 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .nav-links a:hover {
+            color: #007bff !important;
+        }
+
+        /* Cool Animated Underline Sliding Effect */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #007bff;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .menu-header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--header-bg-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .menu-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-brand-color);
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Responsive Grid Layout for the Menu Items */
+        .menu-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Individual Food Card Design */
+        .menu-card {
+            background-color: var(--card-bg-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Image sizing & formatting */
+        .menu-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            background-color: #eee;
+        }
+
+        .menu-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Badges */
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--badge-popular);
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .badge.spicy {
+            background-color: var(--badge-spicy);
+        }
+
+        /* Content block inside the card */
+        .menu-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .menu-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .menu-item-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-brand-color);
+            white-space: nowrap;
+        }
+
+        .menu-item-description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0 0 20px 0;
+            flex-grow: 1;
+        }
+
+        .order-btn {
+            background-color: var(--text-main);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .order-btn:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        footer {
+            background-color: var(--footer-bg-color);
+            color: var(--footer-text-color);
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Wok This Way</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="FAMOUSFOODS.html">Famous Foods</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="ourmenu.html">Our Menu</a></li>
+            <li><a href="ourfeedbacks.html">Our Feedbacks</a></li>
+            <li><a href="sendfeedbacks.html">Send Feedback</a></li>
+        </ul>
+    </nav>
+
+    <!-- Menu Title Section -->
+    <header class="menu-header">
+        <h2>Our Menu</h2>
+        <p>Fresh, authentic flavors cooked to perfection in our signature woks.</p>
+    </header>
+
+    <!-- Main Menu Content Grid -->
+    <main class="menu-container">
+        <!-- Item 1 -->
+        <div class="menu-card">
+            <div class="menu-image-wrapper">
+                <img src="ASSETS/FOOD.JPG" alt="Kung Pao Chicken">
+                <span class="badge spicy">Spicy 🔥</span>
+            </div>
+            <div class="menu-info">
+                <div class="menu-title-row">
+                    <h3 class="menu-item-name">Kung Pao Chicken</h3>
+                    <span class="menu-item-price">$14.99</span>
+                </div>
+                <p class="menu-item-description">Diced chicken breast stir-fried with crunchy peanuts, bell peppers, and
+                    chili peppers in a savory, smoky sauce.</p>
+                <a href="contactus.html" class="order-btn">Order Now</a>
+            </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-card">
+            <div class="menu-image-wrapper">
+                <img src="ASSETS/FOOD1.JPG" alt="Wok-Fired Beef Noodles">
+                <span class="badge">Popular Star ⭐</span>
+            </div>
+            <div class="menu-info">
+                <div class="menu-title-row">
+                    <h3 class="menu-item-name">Wok Beef Noodles</h3>
+                    <span class="menu-item-price">$16.50</span>
+                </div>
+                <p class="menu-item-description">Tender slices of beef tossed with thick egg noodles, green onions, and
+                    fresh bean sprouts in a dark soy glaze.</p>
+                <a href="contactus.html" class="order-btn">Order Now</a>
+            </div>
+        </div>
+
+        <!-- Item 3 - FULLY RESTORED WITH ORIGINAL MEDIA AND BUTTONS -->
+        <div class="menu-card">
+            <div class="menu-image-wrapper">
+                <img src="ASSETS/FOOD2.JPG" alt="Vegetable Stir Fry">
+            </div>
+            <div class="menu-info">
+                <div class="menu-title-row">
+                    <h3 class="menu-item-name">Vegetable Stir Fry</h3>
+                    <span class="menu-item-price">$12.00</span>
+                </div>
+                <p class="menu-item-description">A colorful medley of fresh vegetables stir-fried in a light garlic sauce,
+                    served with steamed jasmine rice.</p>
+                <a href="contactus.html" class="order-btn">Order Now</a>
+            </div>
